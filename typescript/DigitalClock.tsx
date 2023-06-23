@@ -1,7 +1,5 @@
 
 import React, { FC, useEffect, useState } from 'react';
-import './css/Login.css';
-
 
 
 interface DefaultProps {
