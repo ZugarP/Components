@@ -57,37 +57,8 @@ const Clock: FC<DefaultProps> = ({ show }): JSX.Element => {
 function DigitalClock() {
 
   const [showClock, setShowClock] = useState<boolean>(true);
-
-
   return (
-    
-      <section className="home">
-        <div className="login-left">
-          <div className="card-login">
-
-            <h1>Login</h1>
-
-            <div className="textfield">
-              <label htmlFor="usuario">Usuário</label>
-              <input type="text" name="usuario" placeholder="Usuário"/>
-            </div>
-
-            <div className="textfield">
-              <label htmlFor="senha">Senha</label>
-              <input type="text" name="senha" placeholder="Senha"/>
-            </div>
-
-            <button className="btn-login">Login</button>
-
-          </div>  
-             
-        </div>
-
-          <div><Clock show={showClock} /></div>
-
-
-      </section>
-    
+          <div><Clock show={showClock} /></div>   
   );
 }
 
