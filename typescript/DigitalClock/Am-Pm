@@ -54,7 +54,7 @@ const Clock: FC<DefaultProps> = ({ show }): JSX.Element => {
 };
 
 
-function Login() {
+function DigitalClock() {
 
   const [showClock, setShowClock] = useState<boolean>(true);
 
@@ -91,4 +91,4 @@ function Login() {
   );
 }
 
-export default Login;
+export default DigitalClock;
