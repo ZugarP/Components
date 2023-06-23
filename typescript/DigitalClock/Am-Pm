@@ -1,0 +1,94 @@
+
+import React, { FC, useEffect, useState } from 'react';
+
+
+interface DefaultProps {
+  show: boolean;
+}
+
+const Clock: FC<DefaultProps> = ({ show }): JSX.Element => {
+  const [clock, setClock] = useState<string>(new Date().toLocaleTimeString());
+
+  useEffect(() => {
+    const clock = setInterval(
+      (): void => setClock(new Date().toLocaleTimeString()),
+      1000
+    );
+
+    return () => {
+      clearInterval(clock);
+    };
+  }, []);
+
+
+ 
+  function AmPm (){
+    if(parseInt(clock.split(":")[0])<12){
+      const AP = "AM";
+      return AP;
+    }else{
+      const AP ="PM"
+      return AP;
+    }
+  }
+  
+  return (
+    <>
+      {show && (
+        <div>
+          <h1 className="display-4" style={{ fontSize: "2rem" }}>
+            {new Date().toLocaleDateString(undefined, {
+              weekday: "short",
+              year: "2-digit",
+              month: "2-digit",
+              day: "numeric",
+            })}
+          </h1>
+          <h1 className="display-1" style={{ fontSize: "4rem" }}>
+            {clock.split(":")[0]} : {clock.split(":")[1]} {AmPm()}
+          </h1>
+        </div>
+      )}
+    </>
+  );
+};
+
+
+function Login() {
+
+  const [showClock, setShowClock] = useState<boolean>(true);
+
+
+  return (
+    
+      <section className="home">
+        <div className="login-left">
+          <div className="card-login">
+
+            <h1>Login</h1>
+
+            <div className="textfield">
+              <label htmlFor="usuario">Usuário</label>
+              <input type="text" name="usuario" placeholder="Usuário"/>
+            </div>
+
+            <div className="textfield">
+              <label htmlFor="senha">Senha</label>
+              <input type="text" name="senha" placeholder="Senha"/>
+            </div>
+
+            <button className="btn-login">Login</button>
+
+          </div>  
+             
+        </div>
+
+          <div><Clock show={showClock} /></div>
+
+
+      </section>
+    
+  );
+}
+
+export default Login;
