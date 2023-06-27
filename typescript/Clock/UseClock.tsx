@@ -1,6 +1,6 @@
 import React, { CSSProperties, FunctionComponent } from 'react'
 import { GetClockInfo } from './GetClockInfo'
-import './css/Login.css'
+import './Clock.css'
 
 export default function UseClock(){
 	const clock = GetClockInfo()
